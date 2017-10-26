@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load bootstrap_form from bootstrap3 %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block title %}{% trans "Sign Up" context "Signup page title" %} — {{ block.super }}{% endblock %}
+
+{% block content %}
+  <div class="col-lg-10 offset-lg-1 col-sm-12">
+    <div class="row login" style="position: relative; top: 250px; margin-bottom: 50px; margin-left: 100px;">
+      <div class="col-md-6 login__register">
+        <div class="login__register-link">
+          <h3>{% trans "Already have an account?" context "Signup form secondary title" %}</h3>
+          
+          <p><a href="{% url 'account_login' %}" class="btn secondary narrow">
+            {% trans "Log in" context "Signup form secondary action" %}
+          </a></p>
+        </div>
+      </div>
+      <div class="col-md-6 login__form" style="background-color: black;">
+        <form method="post" action="{% url 'account_signup' %}">
+          <fieldset>
+            <h3>{% trans "Create an account" context "Signup form title" %}</h3>
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% if redirect_field_value %}
+              <input type="hidden" name="{{ redirect_field_name }}"
+                     value="{{ redirect_field_value }}"/>
+            {% endif %}
+          </fieldset>
+          <button type="submit" class="btn primary narrow">
+            {% trans "Create an account" context "Signup form primary action" %}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="none" style="position: relative;margin-top: 300px;"></div>
+{% endblock %}

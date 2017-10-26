@@ -1,0 +1,99 @@
+{% extends "dashboard/base.html" %}
+{% load i18n %}
+{% load prices_i18n %}
+{% load materializecss %}
+{% load staticfiles %}
+{% load product_first_image from product_images %}
+{% load utils %}
+
+{% block title %}
+  {% trans "Products" context "Dashboard products list" %} - {{ block.super }}
+{% endblock %}
+
+{% block body_class %}body-products{% endblock %}
+
+{% block menu_products_class %}active{% endblock %}
+
+{% block header_extra %}
+  {% if product_classes %}
+    {% if perms.product.edit_product %}
+      <div class="fixed-action-btn">
+        {% if product_classes|length > 1 %}
+          <a class="btn-fab btn-floating btn-large waves-effect waves-light teal modal-trigger" href="#modal-product-class" title="{% trans "Add product" context "Product list add button text" %}">
+            <svg data-src="{% static "dashboard/images/add.svg" %}" />
+          </a>
+        {% else %}
+          <a class="btn-fab btn-floating btn-large waves-effect waves-light teal modal-trigger" href="{% url 'dashboard:product-add' product_classes.0.pk %}" title="{% trans "Add product" context "Product list add button text" %}">
+            <svg data-src="{% static "dashboard/images/add.svg" %}" />
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endif %}
+{% endblock %}
+
+{% block breadcrumbs %}
+  <ul class="breadcrumbs">
+    <li class="visible-s">
+      {% trans "Products" context "Dashboard products list" %}
+    </li>
+  </ul>
+{% endblock %}
+
+{% block menu_catalogue_class %} active{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col s12">
+      {% if products %}
+        <ul class="collection list">
+          {% for product in products %}
+            <li class="collection-item avatar list-item">
+              <a href="{% url 'dashboard:product-detail' pk=product.pk %}">
+                <img src="{% product_first_image product size="60x60" method="crop" %}"
+                     srcset="{% product_first_image product size="60x60" method="crop" %} 1x, {% product_first_image product size="120x120" method="crop" %} 2x"
+                     alt="" class="circle teal">
+                <span class="title list-item-name">
+                  {{ product.name }}
+                </span>
+                <p class="list-item-price">
+                  {% gross product.price html=True %}
+                </p>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+        {% paginate products %}
+      {% else %}
+        <div class="not-found">
+          <p class="grey-text">
+            {% trans "No products found." context "Empty product list message" %}
+          </p>
+          {% if not product_classes %}
+            <p class="grey-text">
+              {% trans "Create product type first." context "Empty product list without product types message" %}
+            </p>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  <div id="modal-product-class" class="modal">
+    <form method="post" novalidate>
+      <div class="modal-content">
+        {% csrf_token %}
+        <div class="row">
+          {{ form|materializecss }}
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="modal-action btn-flat">
+          {% trans "Create new" context "Dashboard add action" %}
+        </button>
+        <a href="#!" class="modal-action modal-close btn-flat">
+          {% trans "Cancel" context "Dashboard cancel action" %}
+        </a>
+      </div>
+    </form>
+  </div>
+{% endblock %}

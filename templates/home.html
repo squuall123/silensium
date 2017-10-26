@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+    <div class="home" >
+      <div class="row">
+        <div class="col-sm-12 home__block1">
+          <div class="home--square" style="margin-top: 90px;">
+            <div class="home--content" >
+              <div class="home--content-wrapper" >
+                <div class="home--content-inner" >
+                  <img src="{% static "images/logoU.png" %}" style="display: inline-block;">
+                  <h2>{% trans "NOUVELLE COLLECTION" %}</h2>
+                  
+                    <a class="btn btn-secondary home__button" href="#" style="padding-left: 3px;padding-top: 3px;padding-bottom: 3px;font-family: myriad pro;">
+                        {% trans "Je shoppe" context "Homepage action" %}
+                        <img src="../images/flecheshop.png" >
+                    </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="home__featured">
+        <h1 class="text-center" >{% trans "TOP VENTES" context "Homepage title" %}</h1>
+        <div class="row">
+          {% include "category/_items.html" %}
+        </div>
+        <h1 class="text-center">{% trans "E-SHOP" context "Homepage title" %}</h1>
+      <p>Livraison offerte à partir de 99dt Profitez-en dès maintenant!!</p>
+      <div class="row">
+        <div class="col-sm-12 col-md-4 home__block2">
+          <div class="home--square">
+            <div class="home--content" >
+              <div class="home--content-wrapper">
+                <div class="home--content-inner">
+                  <h1>{% trans "ACCESSOIRES" context "Homepage title" %}</h1>
+                  <a class="btn btn-secondary home__button" href="#">{% trans "JE SHOPPE" context "Homepage action" %}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4 home__block3">
+          <div class="home--square">
+            <div class="home--content">
+              <div class="home--content-wrapper">
+                <div class="home--content-inner">
+                  <h1>{% trans "HOMME" context "Homepage title" %}</h1>
+                   <h1>{% trans "FEMME" context "Homepage title" %}</h1>
+                   <a class="btn btn-secondary home__button" href="#">{% trans "JE SHOPPE" context "Homepage action" %}</a>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4 home__block4">
+          <div class="home--square">
+            <div class="home--content">
+              <div class="home--content-wrapper">
+                <div class="home--content-inner">
+                  <h1>{% trans "LOOKS BY US" context "Homepage title" %}</h1>
+                  <a class="btn btn-secondary home__button" href="#">{% trans "JE SHOPPE" context "Homepage action" %}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<h1 class="text-center" >{% trans "NOUS SUIVRE" context "Homepage title" %}</h1>
+<p>Rejoinez-nous sur les réseaux sociaux et découvrez toute l'actualité</p>
+<div class="row">
+
+        <div class="col-sm-12 col-md-4 home__block5">
+          <div class="home--square">
+            <div class="home--content">
+              <div class="home--content-wrapper">
+                <div class="home--content-inner" href="#">
+                  <a href="https://www.facebook.com/" style="font-family: The Devil Net; background-color: black; color: white; border: none;">Facebook</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4 home__block6">
+          <div class="home--square">
+            <div class="home--content">
+              <div class="home--content-wrapper">
+                <div class="home--content-inner">
+                  <a href="https://twitter.com/" style="font-family: The Devil Net; background-color: black; color: white; border: none;">Twitter</a>
+                                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-4 home__block7">
+          <div class="home--square">
+            <div class="home--content">
+              <div class="home--content-wrapper">
+                <div class="home--content-inner">
+                  <a href="https://www.instagram.com/" style="font-family: The Devil Net; background-color: black; color: white; border: none;">Instagram</a>
+                                 </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row" ">
+        <p style="margin-left: 300px; margin-top: 10px; font-size:13px;""><strong>Silensium</strong> est la marque de Prête-à-porter Fashionwear crée par le musicien Silensium.</p>
+<p style="margin-left: 100px; margin-top: 0px; font-size:13px;">Retrouvez sur <strong>Silensium Store</strong>, toutes les collections de vêtements et accessoires emprunts de la culture Rock:t-shirts,OuterWear,chemises,pantalons et Accessoires.</p>
+      </div>
+      </div>
+      </div>
+    </div>
+  </div>
+    
+    
+      
+
+    </div>
+
+{% endblock %}

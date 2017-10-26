@@ -1,0 +1,228 @@
+body{
+  background-color: black;
+  margin-right: 40px;
+  width: 100%;
+}
+
+.home {
+  font-family: "Myriad Pro";
+  text-align: center;
+
+  color: $white;
+  background-color: white;
+  margin-top: 3px;
+  h2{
+    color: white;
+    border: 1px solid black;
+    padding: 30px;
+    background-color: black;
+   
+    margin-right:380px;
+    margin-left: 380px;
+   
+  }
+  h1 {
+  }
+  .btn {
+    margin-top: $global-margin;
+  }
+  &--content-wrapper {
+     display: table;
+     width: 100%;
+     height: 100%;
+  }
+  &--content-inner {
+    a{
+    color: white;
+    border: 3px solid white;
+  }
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+      color: white;
+      padding-left: $global-padding;
+      padding-right: $global-padding;
+  }
+  &--content {
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  &--square {
+    background-size: cover;
+    position: relative;
+    
+    
+
+    &:before {
+      content: "";
+      display: block;
+      padding-top: 100%;
+    }
+  }
+  &__block1 {
+    .home--square {
+      background-image: url('../images/carrousel.png');
+      @include media-breakpoint-up(md) {
+        &:before {
+          padding-top: 50%;
+        }
+      }
+    }
+    
+  }
+  &__block2 {
+    margin-top: $global-margin * 2;
+    h1{
+      background-color: black;
+      padding: 5px;
+      font-family: Times New Roman;
+      margin-right: 30px;
+      margin-left: 30px;
+    }
+
+      .home--content{
+      a{
+        display: none;
+      }
+      }
+      .home--content :hover{
+      
+       
+        filter: brightness(10%);
+          -webkit-filter: brightness(50%);
+          -moz-filter: brightness(50%);
+          -o-filter: brightness(50%);
+          -ms-filter: brightness(50%);
+
+        a{
+        display: inline-block; 
+        opacity:1;
+
+      }
+
+    }
+    .home--square {
+      background-image: url('../images/accessoire.png');
+    }
+    .home--square :hover{
+      background-color: grey;
+      opacity: 1;
+    }
+  }
+  &__block3 {
+    margin-top: $global-margin * 2;
+    h1{
+      background-color: black;
+      padding: 5px;
+      font-family: Times New Roman;
+       margin-right: 70px;
+      margin-left: 70px;
+    }
+    .home--content{
+      a{
+        display: none;
+      }
+      }
+      .home--content :hover{
+      
+       
+        filter: brightness(10%);
+          -webkit-filter: brightness(50%);
+          -moz-filter: brightness(50%);
+          -o-filter: brightness(50%);
+          -ms-filter: brightness(50%);
+
+        a{
+        display: inline-block;
+        opacity: 1;
+
+      }
+
+    }
+    
+    .home--square :hover{
+      background-color: grey;
+      opacity: 1;
+    }
+    .home--square {
+      background-image: url('../images/shop.png');
+    }
+  }
+  &__block4{
+    margin-top: $global-margin * 2;
+    h1{
+      background-color: black;
+      padding: 5px;
+      font-family: Times New Roman;
+       margin-right: 30px;
+      margin-left: 30px;
+    }
+    .home--content{
+      a{
+        display: none;
+      }
+      }
+      .home--content :hover{
+      
+       
+        filter: brightness(50%);
+          -webkit-filter: brightness(50%);
+          -moz-filter: brightness(50%);
+          -o-filter: brightness(50%);
+          -ms-filter: brightness(50%);
+
+        a{
+        display: inline-block;
+        opacity: 1;
+
+      }
+
+    }
+    
+    .home--square :hover{
+      background-color: grey;
+      opacity: 1;
+    }
+    .home--square {
+      background-image: url('../images/Looksbyus.png');
+    }
+  }
+  &__block5{
+    margin-top: $global-margin * 2;
+    .home--square {
+      background-image: url('../images/part5.png');
+    }
+  }
+  &__block6{
+    margin-top: $global-margin * 2;
+    .home--square {
+      background-image: url('../images/part6.png');
+    }
+  }
+  &__block7{
+    margin-top: $global-margin * 2;
+    .home--square {
+      background-image: url('../images/part7.png');
+    }
+  }
+  &__featured {
+    color: black;
+    background-color: white;
+    h1{
+      font-size: 30px;
+      
+      letter-spacing: -1px;
+      word-spacing: 1px;
+      font-family: The Devil net;
+     
+    }
+    h2 {
+      text-transform: uppercase;
+      margin: $global-margin * 2 0;
+    }
+  
+  }
+}

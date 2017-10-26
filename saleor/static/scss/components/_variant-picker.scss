@@ -1,0 +1,27 @@
+.variant-picker {
+  margin-bottom: $global-margin;
+  .btn-group {
+    display: inline-block;
+    z-index: 0;
+
+  }
+  &__label {
+    margin-bottom: $global-margin;
+    
+  }
+  &__options {
+    display: block;
+  }
+  &__option {
+    margin-bottom: 0;
+    margin-bottom: $global-margin / 4;
+    border-color: $gray;
+   
+    float: left;
+    &.active {
+     
+      
+      background-color: transparent;
+    }
+  }
+}

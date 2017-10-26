@@ -1,0 +1,38 @@
+#category-page {
+
+  h2 {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-bottom: $global-padding ;
+    padding-top: $global-padding;
+  }
+  .breadcrumbs {
+   
+    margin-bottom: 0;
+  }
+  .category-list {
+    background-color: white;
+    margin-top: $global-margin;
+    &--loading {
+      opacity: 0.5;
+      transition: 0.3s;
+    }
+  }
+  .category-top {
+    border-bottom: solid 1px $gray;
+    padding-bottom: $global-padding;
+
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+      position: fixed;
+      background: $white;
+      z-index: 1;
+      top: 5.7rem;
+      left: 0;
+      padding-top: $global-padding;
+    }
+  }
+}

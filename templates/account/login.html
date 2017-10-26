@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block title %}{% trans "Log in" context "Login page title" %} — {{ block.super }}{% endblock %}
+
+{% block content  %}
+
+  <div class="col-lg-10 col-sm-12 m-auto" ">
+    <div class="row login" style="position: relative; top: 250px; margin-bottom: 50px;" >
+      <div class="col-md-6 login__register">
+        <div class="login__register-link">
+          <h3>{% trans "Don't have an account yet?" context "Login form secondary title" %}</h3>
+          
+          <a href="{% url 'account_signup' %}" class="btn secondary narrow">
+            {% trans "Register" context "Login form secondary action" %}
+          </a>
+        </div>
+      </div>
+      <div class="col-md-6 login__form" style="background-color: black;">
+        <h3>{% trans "Log in" context "Login form title" %}</h3>
+        {% include "account/partials/login_form.html" %}
+      </div>
+    </div>
+  </div>
+<div class="none" style="position: relative;margin-top: 300px;"></div>
+{% endblock %}
